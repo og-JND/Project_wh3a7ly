@@ -5,6 +5,9 @@ intents.message_content = True
 
 client = discord.Client(intents=intents)
 
+f = open('sensitive_shit.txt', 'r')
+TOKEN = f.readline()
+
 @client.event
 async def on_ready():
     print("Wh3a7ly_v1.0 is now operational.")
@@ -19,4 +22,4 @@ async def on_message(message):
     print(f"{author = }")
 
 
-client.run('MTE1NDU1NjMyOTY0MjQ0Njg5OA.GWdisd.SSX7NShc9L4U69B9aF4n5aRTm06N0m7fLoP0e0')
+client.run(TOKEN)
