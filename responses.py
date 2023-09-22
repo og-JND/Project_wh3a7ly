@@ -1,6 +1,6 @@
 import random
 
-def sendResponse(user_input):
+def sendResponse(user_input, user_name):
     user_input = user_input.lower()
 
     # Handle greetings
@@ -8,25 +8,26 @@ def sendResponse(user_input):
     if user_input in greetings:
         chosen_greeting = random.randint(1,5)
         off_chance = random.randint(1,100)
-        if chosen_greeting == 1:
-            if off_chance == 100:
-                print("It's a beutiful day outside...")
-            print("Hi there!")
-        if chosen_greeting == 2:
-            if off_chance == 100:
-                print("Birds are singing...")
-            print("Hola!")
-        if chosen_greeting == 3:
-            if off_chance == 100:
-                print("Flowers are blooming...")
-            print("Greetings!")
-        if chosen_greeting == 4:
-            if off_chance == 100:
-                print("On days like these...")
-            print("Hello.")
-        if chosen_greeting == 5:
-            if off_chance == 100:
-                print("Kids like you...")
-            print("Nice to meet you.")
-        print(chosen_greeting)
-
+        match chosen_greeting:
+                case 1:
+                    if off_chance == 100:
+                        return "It's a beutiful day outside..."
+                    return f"Hi there {user_name}."
+                case 2:
+                    if off_chance == 100:
+                        return"Birds are singing..."
+                    return f"Hola {user_name}!"
+                case 3:
+                    if off_chance == 100:
+                        return"Flowers are blooming..."
+                    return f"Greetings {user_name}."
+                case 4:
+                    if off_chance == 100:
+                        return"On days like these..."
+                    return f"Hello {user_name}."
+                case 5:
+                    if off_chance == 100:
+                        return"Kids like you..."
+                    return f"Nice to meet you {user_name}!"
+    else:
+        return"I'm not sure of that greeting..."

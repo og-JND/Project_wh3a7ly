@@ -1,4 +1,5 @@
 import discord
+import responses
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -14,12 +15,16 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    channel_name = message.channel.name
+    channel = message.channel
     author = message.author.global_name
     message_content = message.content
-    print(f"{channel_name = }")
-    print(f"{message_content = }")
-    print(f"{author = }")
+    greeting = responses.sendResponse(message_content, author)
+    if (message.author != client.user):
+        await channel.send(greeting)
+    # print(f"{channel_name = }")
+    # print(f"{message_content = }")
+    # print(f"{author = }")
+    
 
 
 client.run(TOKEN)
