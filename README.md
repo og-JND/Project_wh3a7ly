@@ -1,5 +1,4 @@
 # Project_wh3a7ly  
-=================  
 
 ![A picture of me! Wheatly](img/pfp.jpg)
 
